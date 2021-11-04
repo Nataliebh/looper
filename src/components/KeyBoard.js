@@ -26,7 +26,7 @@ const KeyBoard = ({
   const toggle = () => {
     !playing ? addToAudioArray(audio) : removeFromAudioArray(audio.src);
     setPlaying(!playing);
-  }; //if true set as false and etc
+  };
 
   return (
     <button
