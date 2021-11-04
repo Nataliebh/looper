@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #95afc1;
+}
+
+@font-face {
+  font-family: "SEGA LOGO FONT";
+  font-style: normal;
+  font-weight: normal;
+  src: local("SEGA LOGO FONT"), url("SEGA.woff") format("woff");
+}
+
+h1 {
+  font-family: "SEGA LOGO FONT";
+  font-weight: 200;
+  color: #983732;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 3.3em;
+}
+
+.looper-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  display: grid;
+  padding: 30px;
+  grid-gap: 15px;
+  border-radius: 20px;
+  grid-template-columns: 1fr;
+  background-color: #394968;
+  /* margin: auto; */
+}
+
+.keyboard {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.keyboard .key-pad {
+  width: 100%;
+  height: 80px;
+  outline: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #d1e7e0;
+  border: 1px solid #111;
+  transition: all 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.keyboard .key-pad:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+@media (min-width: 768px) {
+  .wrapper {
+    width: 680px;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.controle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.controle > button,
+.controle > input,
+.controle > h2 {
+  margin-bottom: 10px;
+}
+
+.controle button {
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background-color: #000000;
+}
+
+/*------ switch button 0N-OFF ---------*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #983732;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #01b4b4;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(55px);
+}
+
+.on {
+  display: none;
+}
+
+.on,
+.off {
+  color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked + .slider .on {
+  display: block;
+}
+
+input:checked + .slider .off {
+  display: none;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
